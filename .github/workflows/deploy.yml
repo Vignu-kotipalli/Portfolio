@@ -32,4 +32,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist/demo/browser 
-          token: ${{ secrets.GH_TOKEN }} # Or your output folder
+          token: ${{ secrets.GH_TOKEN }}
