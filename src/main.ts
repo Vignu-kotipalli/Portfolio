@@ -169,16 +169,16 @@ interface Project {
 })
 export class App {
   personalInfo = {
-    name: 'John Smith',
-    title: 'Full Stack Developer & UI/UX Designer',
-    bio: 'Passionate developer creating innovative web experiences with modern technologies.',
-    longBio: 'I am a dedicated full stack developer with 5+ years of experience building scalable web applications and user-centered designs. I specialize in React, Angular, Node.js, and cloud technologies. My passion lies in creating seamless user experiences that solve real-world problems and drive business value.',
+    name: 'Vigna Pavan Kotipalli',
+    title: 'Full Stack Developer & Data Analyst',
+    bio: 'Passionate full stack developer and data analyst creating innovative web experiences and data-driven insights with modern technologies.',
+    longBio: 'I am a dedicated full stack developer and data analyst with 5+ years of experience building scalable web applications and extracting valuable insights from complex datasets. I specialize in React, Angular, Node.js, and cloud technologies, alongside data analysis tools like Python, SQL, and Power BI. My passion lies in creating seamless user experiences and actionable analytics that solve real-world problems and drive business value.',
     contact: {
-      email: 'john.smith@example.com',
-      phone: '+1 (555) 123-4567',
-      location: 'San Francisco, CA',
-      linkedin: 'https://linkedin.com/in/johnsmith',
-      github: 'https://github.com/johnsmith'
+      email: 'vignukotipalli4@gmail.com',
+      phone: '+91 7989926278',
+      location: 'Narsapur, Andhra Pradesh, India',
+      linkedin: 'https://www.linkedin.com/in/vigna-pavan-kotipalli-7547b716b/',
+      github: 'https://github.com/Vignu-kotipalli'
     }
   };
 
@@ -186,14 +186,14 @@ export class App {
     { name: 'JavaScript/TypeScript', level: 95 },
     { name: 'React & Angular', level: 90 },
     { name: 'Node.js & Express', level: 85 },
-    { name: 'Python & Django', level: 80 },
-    { name: 'AWS & Cloud Services', level: 75 },
-    { name: 'UI/UX Design', level: 70 }
+    { name: 'Power BI & Tableau', level: 75 },
+    { name: 'Electron.js', level: 65 },
+    { name: 'SQL & MongoDB', level: 60 }
   ];
 
   projects: Project[] = [
     {
-      title: 'E-Commerce Platform',
+      title: 'Mitsubishi Kiosk Web',
       description: 'A full-featured e-commerce platform built with React, Node.js, and PostgreSQL. Includes user authentication, payment processing, inventory management, and admin dashboard.',
       technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS'],
       liveUrl: 'https://example-ecommerce.vercel.app',
