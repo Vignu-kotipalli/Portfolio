@@ -196,8 +196,8 @@ export class App {
       title: 'Mitsubishi Kiosk Web',
       description: 'A full-featured e-commerce platform built with React, Node.js, and PostgreSQL. Includes user authentication, payment processing, inventory management, and admin dashboard.',
       technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS'],
-      liveUrl: 'https://example-ecommerce.vercel.app',
-      githubUrl: 'https://github.com/example/ecommerce-platform'
+      liveUrl: 'https://mitsubishi.onrender.com',
+      githubUrl: 'https://github.com/Vignu-kotipalli/Mitsubishi'
     },
     {
       title: 'Task Management App',
