@@ -31,4 +31,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/demo/browser  # Or your output folder
+          folder: dist/demo/browser 
+          token: ${{ secrets.GH_TOKEN }} # Or your output folder
