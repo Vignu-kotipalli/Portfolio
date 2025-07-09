@@ -172,7 +172,7 @@ export class App {
     name: 'Vigna Pavan Kotipalli',
     title: 'Full Stack Developer & Data Analyst',
     bio: 'Passionate full stack developer and data analyst creating innovative web experiences and data-driven insights with modern technologies.',
-    longBio: 'I am a dedicated full stack developer and data analyst with 5+ years of experience building scalable web applications and extracting valuable insights from complex datasets. I specialize in React, Angular, Node.js, and cloud technologies, alongside data analysis tools like Python, SQL, and Power BI. My passion lies in creating seamless user experiences and actionable analytics that solve real-world problems and drive business value.',
+    longBio: 'I am a dedicated full stack developer and data analyst with 3+ years of experience building scalable web applications and extracting valuable insights from complex datasets. I specialize in React, Angular, Node.js, and cloud technologies, alongside data analysis tools like Python, SQL, and Power BI. My passion lies in creating seamless user experiences and actionable analytics that solve real-world problems and drive business value.',
     contact: {
       email: 'vignukotipalli4@gmail.com',
       phone: '+91 7989926278',
