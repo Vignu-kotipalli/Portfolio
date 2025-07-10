@@ -48,43 +48,10 @@ export class App {
   projects: Project[] = [
     {
       title: 'Mitsubishi Kiosk Web',
-      description: 'A full-featured e-commerce platform built with React, Node.js, and PostgreSQL. Includes user authentication, payment processing, inventory management, and admin dashboard.',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS'],
+      description: 'A full-featured Kiosk Web Portal built with Express.js, Node.js, and Cheerio. Includes user Navigation, inventory management, and admin dashboard.',
+      technologies: ['Express.js', 'Node.js', 'Cheerio'],
       liveUrl: 'https://mitsubishi.onrender.com',
       githubUrl: 'https://github.com/Vignu-kotipalli/Mitsubishi'
-    },
-    {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, team collaboration features, and advanced filtering. Built with Angular and Firebase.',
-      technologies: ['Angular', 'Firebase', 'TypeScript', 'Material UI'],
-      liveUrl: 'https://example-taskapp.netlify.app',
-      githubUrl: 'https://github.com/example/task-manager'
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'An interactive weather dashboard featuring real-time weather data, forecasts, and beautiful visualizations. Responsive design with dark/light mode toggle.',
-      technologies: ['Vue.js', 'Chart.js', 'OpenWeather API', 'Tailwind CSS'],
-      liveUrl: 'https://example-weather.surge.sh',
-      githubUrl: 'https://github.com/example/weather-dashboard'
-    },
-    {
-      title: 'Social Media Analytics',
-      description: 'A comprehensive analytics platform for social media management with data visualization, reporting, and automated insights generation.',
-      technologies: ['Python', 'Django', 'D3.js', 'PostgreSQL', 'Redis'],
-      liveUrl: 'https://example-analytics.herokuapp.com'
-    },
-    {
-      title: 'Real Estate Platform',
-      description: 'A modern real estate listing platform with advanced search, virtual tours, and mortgage calculator. Features include map integration and user reviews.',
-      technologies: ['Next.js', 'MongoDB', 'Mapbox', 'Cloudinary'],
-      liveUrl: 'https://example-realestate.vercel.app',
-      githubUrl: 'https://github.com/example/real-estate'
-    },
-    {
-      title: 'Fitness Tracking App',
-      description: 'A comprehensive fitness tracking application with workout planning, progress tracking, and social features. Includes wearable device integration.',
-      technologies: ['React Native', 'Express.js', 'MongoDB', 'Socket.io'],
-      liveUrl: 'https://example-fitness.expo.dev'
     }
   ];
 }
