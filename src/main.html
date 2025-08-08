@@ -1,25 +1,85 @@
 <div class="portfolio">
+    <!-- Background Animations -->
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" id="navbar">
       <div class="nav-container">
-        <div class="nav-brand">{{ personalInfo.name }}</div>
-        <div class="nav-links">
-          <a href="#about" class="nav-link">About</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#contact" class="nav-link">Contact</a>
+        <div class="nav-brand">
+          <span class="brand-icon">👨‍💻</span>
+          {{ personalInfo.name }}
         </div>
+        <div class="nav-links">
+          <a href="#about" class="nav-link" (click)="smoothScroll('about')">About</a>
+          <a href="#projects" class="nav-link" (click)="smoothScroll('projects')">Projects</a>
+          <a href="#contact" class="nav-link" (click)="smoothScroll('contact')">Contact</a>
+          <button class="theme-toggle" (click)="toggleTheme()" title="Toggle Dark Mode">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+        <div class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+        </div>
+      </div>
+      <div class="mobile-menu" [class.active]="mobileMenuOpen">
+        <a href="#about" class="mobile-nav-link" (click)="closeMobileMenu(); smoothScroll('about')">About</a>
+        <a href="#projects" class="mobile-nav-link" (click)="closeMobileMenu(); smoothScroll('projects')">Projects</a>
+        <a href="#contact" class="mobile-nav-link" (click)="closeMobileMenu(); smoothScroll('contact')">Contact</a>
       </div>
     </nav>
   
     <!-- Hero Section -->
     <section id="hero" class="hero">
       <div class="hero-content">
-        <h1 class="hero-title">{{ personalInfo.name }}</h1>
-        <p class="hero-subtitle">{{ personalInfo.title }}</p>
+        <div class="hero-avatar">
+          <div class="avatar-container">
+            <div class="avatar-image">👨‍💻</div>
+            <div class="avatar-ring"></div>
+          </div>
+        </div>
+        <h1 class="hero-title">
+          <span class="typing-text">Hi, I'm </span>
+          <span class="name-highlight">{{ personalInfo.name }}</span>
+        </h1>
+        <p class="hero-subtitle">
+          <span class="role-text">{{ personalInfo.title }}</span>
+        </p>
         <p class="hero-description">{{ personalInfo.bio }}</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">∞</span>
+            <span class="stat-label">Lines of Code</span>
+          </div>
+        </div>
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          <a href="#projects" class="btn btn-primary pulse-btn" (click)="smoothScroll('projects')">
+            <span class="btn-icon">🚀</span>
+            View My Work
+          </a>
+          <a href="#contact" class="btn btn-secondary" (click)="smoothScroll('contact')">
+            <span class="btn-icon">💬</span>
+            Let's Talk
+          </a>
+        </div>
+        <div class="scroll-indicator">
+          <div class="scroll-arrow">↓</div>
+          <span class="scroll-text">Scroll to explore</span>
         </div>
       </div>
     </section>
@@ -27,26 +87,63 @@
     <!-- About Section -->
     <section id="about" class="about">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title reveal-text">
+          <span class="title-icon">🧑‍💼</span>
+          About Me
+        </h2>
         <div class="about-content">
-          <div class="about-text">
-            <p>{{ personalInfo.longBio }}</p>
+          <div class="about-text reveal-left">
+            <div class="text-highlight">
+              <p>{{ personalInfo.longBio }}</p>
+            </div>
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <span class="highlight-icon">💡</span>
+                <div class="highlight-content">
+                  <h4>Innovation Focused</h4>
+                  <p>Always exploring cutting-edge technologies</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-icon">🎯</span>
+                <div class="highlight-content">
+                  <h4>Result Driven</h4>
+                  <p>Delivering impactful solutions that matter</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-icon">🤝</span>
+                <div class="highlight-content">
+                  <h4>Team Player</h4>
+                  <p>Collaborative approach to problem solving</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="skills">
-            <h3 class="skills-title">Technical Skills</h3>
+          <div class="skills reveal-right">
+            <h3 class="skills-title">
+              <span class="skills-icon">⚡</span>
+              Technical Skills
+            </h3>
             <div class="skills-grid">
-              <div *ngFor="let skill of skills" class="skill-item">
+              <div *ngFor="let skill of skills; let i = index"
+                   class="skill-item"
+                   [style.animation-delay.ms]="i * 100">
                 <div class="skill-header">
                   <span class="skill-name">{{ skill.name }}</span>
                   <span class="skill-percentage">{{ skill.level }}%</span>
                 </div>
                 <div class="skill-bar">
-                  <div 
-                    class="skill-progress" 
+                  <div
+                    class="skill-progress animated-progress"
                     [style.width.%]="skill.level"
+                    [attr.data-level]="skill.level"
                   ></div>
                 </div>
               </div>
+            </div>
+            <div class="skills-footer">
+              <p class="skills-note">Always learning, always growing! 📈</p>
             </div>
           </div>
         </div>
@@ -56,11 +153,30 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
       <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
+        <h2 class="section-title reveal-text">
+          <span class="title-icon">🚀</span>
+          Featured Projects
+        </h2>
+        <div class="projects-intro reveal-up">
+          <p>Here are some of my recent projects that showcase my skills and passion for development.</p>
+        </div>
         <div class="projects-grid">
-          <div *ngFor="let project of projects" class="project-card">
+          <div *ngFor="let project of projects; let i = index"
+               class="project-card reveal-card"
+               [style.animation-delay.ms]="i * 200">
+            <div class="project-image">
+              <div class="project-overlay">
+                <span class="project-emoji">💻</span>
+              </div>
+            </div>
             <div class="project-content">
-              <h3 class="project-title">{{ project.title }}</h3>
+              <div class="project-header">
+                <h3 class="project-title">{{ project.title }}</h3>
+                <div class="project-status">
+                  <span class="status-dot active"></span>
+                  <span class="status-text">Live</span>
+                </div>
+              </div>
               <p class="project-description">{{ project.description }}</p>
               <div class="project-technologies">
                 <span *ngFor="let tech of project.technologies" class="tech-tag">
@@ -68,23 +184,53 @@
                 </span>
               </div>
               <div class="project-links">
-                <a 
-                  [href]="project.liveUrl" 
-                  target="_blank" 
+                <a
+                  [href]="project.liveUrl"
+                  target="_blank"
                   rel="noopener noreferrer"
                   class="project-link project-link-primary"
+                  (mouseenter)="playHoverSound()"
                 >
+                  <span class="link-icon">🌐</span>
                   Live Demo
                 </a>
-                <a 
+                <a
                   *ngIf="project.githubUrl"
-                  [href]="project.githubUrl" 
-                  target="_blank" 
+                  [href]="project.githubUrl"
+                  target="_blank"
                   rel="noopener noreferrer"
                   class="project-link project-link-secondary"
                 >
-                  GitHub
+                  <span class="link-icon">📂</span>
+                  Code
                 </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coming Soon Card -->
+          <div class="project-card coming-soon reveal-card"
+               [style.animation-delay.ms]="projects.length * 200">
+            <div class="project-image">
+              <div class="project-overlay">
+                <span class="project-emoji">🔮</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">More Projects Coming Soon!</h3>
+                <div class="project-status">
+                  <span class="status-dot building"></span>
+                  <span class="status-text">Building</span>
+                </div>
+              </div>
+              <p class="project-description">
+                I'm constantly working on new and exciting projects. Stay tuned for updates!
+              </p>
+              <div class="project-technologies">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">AI/ML</span>
               </div>
             </div>
           </div>
@@ -95,41 +241,109 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
+        <h2 class="section-title reveal-text">
+          <span class="title-icon">💬</span>
+          Let's Connect!
+        </h2>
         <div class="contact-content">
-          <p class="contact-description">
-            I'm always interested in new opportunities and collaborations. 
-            Feel free to reach out if you'd like to work together!
-          </p>
-          <div class="contact-info">
-            <a 
-              [href]="'mailto:' + personalInfo.contact.email" 
-              class="contact-item"
-            >
-              <span class="contact-icon">✉️</span>
-              <span>{{ personalInfo.contact.email }}</span>
-            </a>
-            <a 
-              [href]="personalInfo.contact.linkedin" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="contact-item"
-            >
-              <span class="contact-icon">💼</span>
-              <span>LinkedIn</span>
-            </a>
-            <a 
-              [href]="personalInfo.contact.github" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="contact-item"
-            >
-              <span class="contact-icon">🐙</span>
-              <span>GitHub</span>
-            </a>
-            <div class="contact-item">
-              <span class="contact-icon">📍</span>
-              <span>{{ personalInfo.contact.location }}</span>
+          <div class="contact-intro reveal-up">
+            <p class="contact-description">
+              Ready to bring your ideas to life? I'm always excited about new opportunities and collaborations!
+            </p>
+            <div class="availability-status">
+              <span class="status-indicator available"></span>
+              <span class="status-text">Available for projects</span>
+            </div>
+          </div>
+
+          <div class="contact-methods">
+            <div class="contact-info reveal-left">
+              <a
+                [href]="'mailto:' + personalInfo.contact.email"
+                class="contact-item email-contact"
+                (mouseenter)="playHoverSound()"
+              >
+                <div class="contact-icon-wrapper">
+                  <span class="contact-icon">✉️</span>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">{{ personalInfo.contact.email }}</span>
+                </div>
+                <span class="contact-arrow">→</span>
+              </a>
+
+              <a
+                [href]="personalInfo.contact.linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-item linkedin-contact"
+              >
+                <div class="contact-icon-wrapper">
+                  <span class="contact-icon">💼</span>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">LinkedIn</span>
+                  <span class="contact-value">Professional Profile</span>
+                </div>
+                <span class="contact-arrow">→</span>
+              </a>
+
+              <a
+                [href]="personalInfo.contact.github"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-item github-contact"
+              >
+                <div class="contact-icon-wrapper">
+                  <span class="contact-icon">🐙</span>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">GitHub</span>
+                  <span class="contact-value">View My Code</span>
+                </div>
+                <span class="contact-arrow">→</span>
+              </a>
+
+              <div class="contact-item location-contact">
+                <div class="contact-icon-wrapper">
+                  <span class="contact-icon">📍</span>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">Location</span>
+                  <span class="contact-value">{{ personalInfo.contact.location }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-cta reveal-right">
+              <div class="cta-card">
+                <h3 class="cta-title">Ready to start a project?</h3>
+                <p class="cta-description">
+                  Let's discuss how we can bring your vision to life with cutting-edge technology and creative solutions.
+                </p>
+                <a
+                  [href]="'mailto:' + personalInfo.contact.email"
+                  class="cta-button"
+                >
+                  <span class="cta-icon">🚀</span>
+                  Start a Conversation
+                </a>
+                <div class="cta-features">
+                  <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <span>Quick Response</span>
+                  </div>
+                  <div class="feature-item">
+                    <span class="feature-icon">💡</span>
+                    <span>Creative Solutions</span>
+                  </div>
+                  <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <span>Goal Focused</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -139,8 +353,50 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2025 {{ personalInfo.name }}. All rights reserved.</p>
+        <div class="footer-content">
+          <div class="footer-main">
+            <div class="footer-brand">
+              <span class="footer-icon">👨‍💻</span>
+              <span class="footer-name">{{ personalInfo.name }}</span>
+            </div>
+            <p class="footer-tagline">Building the future, one line of code at a time.</p>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4 class="footer-title">Quick Links</h4>
+              <a href="#about" class="footer-link" (click)="smoothScroll('about')">About</a>
+              <a href="#projects" class="footer-link" (click)="smoothScroll('projects')">Projects</a>
+              <a href="#contact" class="footer-link" (click)="smoothScroll('contact')">Contact</a>
+            </div>
+
+            <div class="footer-section">
+              <h4 class="footer-title">Connect</h4>
+              <a [href]="personalInfo.contact.linkedin" target="_blank" class="footer-link">LinkedIn</a>
+              <a [href]="personalInfo.contact.github" target="_blank" class="footer-link">GitHub</a>
+              <a [href]="'mailto:' + personalInfo.contact.email" class="footer-link">Email</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            &copy; 2025 {{ personalInfo.name }}. Crafted with ❤️ and lots of ☕
+          </p>
+          <div class="footer-social">
+            <span class="social-text">Made with Angular & TypeScript</span>
+          </div>
+        </div>
       </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      class="back-to-top"
+      [class.visible]="showBackToTop"
+      (click)="scrollToTop()"
+      title="Back to top"
+    >
+      <span class="back-to-top-icon">↑</span>
+    </button>
   </div>
-  
