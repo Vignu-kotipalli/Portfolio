@@ -307,7 +307,8 @@ body.dark-mode .nav.scrolled {
 }
 
 .hero-avatar {
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   animation: fadeInDown 1s ease;
 }
 
