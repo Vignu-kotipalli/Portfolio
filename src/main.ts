@@ -24,7 +24,7 @@ interface Project {
 export class App implements OnInit {
   mobileMenuOpen = false;
   showBackToTop = false;
-  isDarkMode = false;
+  isDarkMode = true;
   personalInfo = {
     name: 'Vigna Pavan Kotipalli',
     title: 'Full Stack Developer & Data Analyst',
@@ -94,12 +94,27 @@ export class App implements OnInit {
 
   loadThemePreference() {
     const savedTheme = localStorage.getItem('darkMode');
-    if (savedTheme === 'true') {
+    if (savedTheme === null) {
+      // Default to dark mode if no preference is saved
       this.isDarkMode = true;
       document.body.classList.add('dark-mode');
       const themeIcon = document.querySelector('.theme-icon');
       if (themeIcon) {
         themeIcon.textContent = '☀️';
+      }
+    } else if (savedTheme === 'true') {
+      this.isDarkMode = true;
+      document.body.classList.add('dark-mode');
+      const themeIcon = document.querySelector('.theme-icon');
+      if (themeIcon) {
+        themeIcon.textContent = '☀️';
+      }
+    } else {
+      this.isDarkMode = false;
+      document.body.classList.remove('dark-mode');
+      const themeIcon = document.querySelector('.theme-icon');
+      if (themeIcon) {
+        themeIcon.textContent = '🌙';
       }
     }
   }
